@@ -95,6 +95,8 @@ function get(serviceNowTable, callback) {
   });
 
 }
+
+
 /**
  * @function post
  * @description Call the ServiceNow POST API.
@@ -124,7 +126,7 @@ function post(serviceNowTable, callback) {
       pass: options.password,
     },
     baseUrl: options.url,
-    uri: '/api/now/table/${serviceNowTable}',
+    uri: `/api/now/table/${serviceNowTable}`,
   };
 
   // Send Request to ServiceNow.
@@ -153,9 +155,6 @@ function post(serviceNowTable, callback) {
   });
 
 }
-
-
-// This test function calls your request and logs any errors.
 /*
  * This section is used to test your project.
  * We will test both get() and post() functions.
@@ -176,6 +175,5 @@ function main() {
     console.log(`\nResponse returned from POST request:\n${JSON.stringify(data)}`)
   });
 }
-
 // Call main to run it.
 main();
