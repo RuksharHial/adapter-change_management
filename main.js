@@ -271,10 +271,10 @@ healthcheck(callback) {
 module.exports = ServiceNowAdapter;
 
 var j = new module.exports('test',{
-  "url": "https://dev22908.service-now.com/",
+  "url": "https://dev80062.service-now.com/",
   "auth": {
     "username": "admin",
-    "password": "colEVVuy7L6M"
+    "password": "2ayAZhZzzTK6"
   },
   "serviceNowTable": "change_request"
 });
