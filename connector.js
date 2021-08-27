@@ -157,6 +157,7 @@ sendRequest(callOptions, callback) {
     baseUrl: this.options.url,
      uri: `/api/now/table/${callOptions.serviceNowTable}?sysparm_limit=1`
   };
+
   request(requestOptions, (error, response, body) => {
     this.processRequestResults(error, response, body, (processedResults, processedError) => callback(processedResults, processedError));
   });
