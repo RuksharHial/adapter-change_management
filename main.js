@@ -84,18 +84,20 @@ class ServiceNowAdapter extends EventEmitter {
   }
 
   /**
- * @memberof ServiceNowAdapter
- * @method healthcheck
- * @summary Check ServiceNow Health
- * @description Verifies external system is available and healthy.
- *   Calls method emitOnline if external system is available.
- *
- * @param {ServiceNowAdapter~requestCallback} [callback] - The optional callback
- *   that handles the response.
- */
-healthcheck(callback) {
- this.emitOnline();
-}
+   * @memberof ServiceNowAdapter
+   * @method healthcheck
+   * @summary Check ServiceNow Health
+   * @description Verifies external system is available and healthy.
+   *   Calls method emitOnline if external system is available.
+   *
+   * @param {ServiceNowAdapter~requestCallback} [callback] - The optional callback
+   *   that handles the response.
+   */
+  healthcheck(callback) {
+    // We will build this method in a later lab. For now, it will emulate
+    // a healthy integration by emmitting ONLINE.
+    this.emitOnline();
+  }
 
   /**
    * @memberof ServiceNowAdapter
@@ -106,7 +108,7 @@ healthcheck(callback) {
    */
   emitOffline() {
     this.emitStatus('OFFLINE');
-  //  log.warn('ServiceNow: Instance is unavailable.');
+    log.warn('ServiceNow: Instance is unavailable.');
   }
 
   /**
@@ -118,7 +120,7 @@ healthcheck(callback) {
    */
   emitOnline() {
     this.emitStatus('ONLINE');
-   // log.info('ServiceNow: Instance is available.');
+    log.info('ServiceNow: Instance is available.');
   }
 
   /**
@@ -150,7 +152,7 @@ healthcheck(callback) {
      * Note how the object was instantiated in the constructor().
      * get() takes a callback function.
      */
-     this.connector.get((data,error)=>callback(data,error));
+       this.connector.get(callback);
   }
 
   /**
@@ -169,9 +171,8 @@ healthcheck(callback) {
      * Note how the object was instantiated in the constructor().
      * post() takes a callback function.
      */
-       this.connector.post((results, error)=>callback(results, error));
+    this.connector.post(callback);
   }
 }
 
 module.exports = ServiceNowAdapter;
-
